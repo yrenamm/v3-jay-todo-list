@@ -1,11 +1,10 @@
-import React from 'react';
 import TodoListItem from './TodoListItem';
 
-function TodoList({ todoList, onCompleteTodo }) {
+function TodoList({ todoList, onCompleteTodo, onUpdateTodo }) {
   const filteredTodoList = todoList.filter((todo) => !todo.isCompleted);
 
   return filteredTodoList.length === 0 ? (
-    <p>Add a todo above to get started</p>
+    <p>Please, add a TODO above to begin</p>
   ) : (
     <ul>
       {filteredTodoList.map((todo) => (
@@ -13,6 +12,7 @@ function TodoList({ todoList, onCompleteTodo }) {
           key={todo.id}
           todo={todo}
           onCompleteTodo={onCompleteTodo}
+          onUpdateTodo={onUpdateTodo}
         />
       ))}
     </ul>
